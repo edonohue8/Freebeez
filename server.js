@@ -1,5 +1,5 @@
 // Requiring necessary npm packages below
-const express = require("express");
+const express = require('express');
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
-const app = express();
+const app == express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
