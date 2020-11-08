@@ -1,4 +1,3 @@
-
 // Creating our Item model
 module.exports = function(sequelize, DataTypes) {
   const Item = sequelize.define("Item", {
@@ -42,6 +41,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-
+    
   return Item;
 };
