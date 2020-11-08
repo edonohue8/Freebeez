@@ -6,6 +6,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // category is used to sort/filter the database table
+    // this field should probably be used for a drop-down list of available categories
+    // an open text field will not work
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
     // price is only needed if available for sale - optional
     price: {
       type: DataTypes.STRING,
