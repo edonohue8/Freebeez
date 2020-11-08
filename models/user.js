@@ -33,11 +33,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     },
     zip: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(5),
       allowNull: false,
-      validate: {
-        len: 5,
-      }
     },
     phone: {
       type: DataTypes.STRING,
