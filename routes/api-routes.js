@@ -52,7 +52,20 @@ module.exports = function(app) {
       });
     }
   });
-//route for posting an item
+
+// Need route to delete user WITH items associated with user
+app.delete("api/user_data/:id", function(req, res) {
+  db.User.destroy({
+    include: db.Item,
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbItem) {
+    res.json(dbItem);
+  });
+});
+
+//route for posting or adding an item
 app.post("/api/itemPost", (req, res)=>{
   db.Item.create({
     itemName: req.body.itemName,
@@ -67,6 +80,8 @@ app.post("/api/itemPost", (req, res)=>{
   });
 });
 
+// Route for viewing all items and associate with users that post them
+// need foreign key in MySQL tables
 app.get("/api/item_data", (req, res) =>{
 db.Item.findAll({
   include: db.User
@@ -74,4 +89,57 @@ db.Item.findAll({
   res.json(items);
 });
 });
+
+// Need route for pulling a specified item from db (when user wants to view it)
+app.get("api/item_data/:id", function(req,res) {
+  db.Item.findOne({
+    include: db.User
+  }).then(function(items){
+    res.json(items);
+  });
+});
+
+// Need route to view items by category (needs editing)
+app.get("api/item_data/:id", function(req,res) {
+  db.Item.findOne({
+    include: db.User
+  }).then(function(items){
+    res.json(items);
+  });
+});
+
+// Need route to update item using PUT
+app.put("api/item_data", function(req,res) {
+  db.Item.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+  }).then(function(dbItem){
+    res.json(dbItem);
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
+});
+
+// Need route to view items listed under user
+app.get("api/user_data/:id", function(req,res) {
+  db.User.findOne({
+    include: db.Item
+  }).then(function(userItems){
+    res.json(userItems);
+  });
+});
+
+// Need route to delete item
+app.delete("api/item_data/:id", function(req, res) {
+  db.Item.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbItem) {
+    res.json(dbItem);
+  });
+});
+
 };

@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   const Item = sequelize.define("Item", {
     // itemname is to populate listing title - required
-    itemname: {
+    itemName: {
       type: DataTypes.STRING,
       allowNull: false
     },
