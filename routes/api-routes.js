@@ -68,6 +68,10 @@ app.post("/api/itemPost", (req, res)=>{
 });
 
 app.get("/api/item_data", (req, res) =>{
-
+db.Item.findAll({
+  include: db.User
+}).then(function(items){
+  res.json(items);
+});
 });
 };
