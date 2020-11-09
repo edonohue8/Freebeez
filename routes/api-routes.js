@@ -21,8 +21,8 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      first_name: req.body.first_name,
-      last_name: req.body.last_name
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -53,93 +53,93 @@ module.exports = function(app) {
     }
   });
 
-// Need route to delete user WITH items associated with user
-app.delete("api/user_data/:id", function(req, res) {
-  db.User.destroy({
-    include: db.Item,
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbItem) {
-    res.json(dbItem);
+  // Need route to delete user WITH items associated with user
+  app.delete("api/user_data/:id", (req, res) => {
+    db.User.destroy({
+      include: db.Item,
+      where: {
+        id: req.params.id
+      }
+    }).then(dbItem => {
+      res.json(dbItem);
+    });
   });
-});
 
-//route for posting or adding an item
-app.post("/api/itemPost", (req, res)=>{
-  db.Item.create({
-    itemName: req.body.itemName,
-    category: req.body.category,
-    price: req.body.price,
-    description: req.body.description,
-    photo: req.body.photo,
-    skuPic: req.body.photo,
-    sellIndicator: req.body.sellIndicator,
-    traderIndicator: req.body.traderIndicator,
-    newUsed: req.body.newUsed
+  //route for posting or adding an item
+  app.post("/api/itemPost", (req, res) => {
+    db.Item.create({
+      itemName: req.body.itemName,
+      category: req.body.category,
+      price: req.body.price,
+      description: req.body.description,
+      photo: req.body.photo,
+      skuPic: req.body.photo,
+      sellIndicator: req.body.sellIndicator,
+      traderIndicator: req.body.traderIndicator,
+      newUsed: req.body.newUsed
+    });
   });
-});
 
-// Route for viewing all items and associate with users that post them
-// need foreign key in MySQL tables
-app.get("/api/item_data", (req, res) =>{
-db.Item.findAll({
-  include: db.User
-}).then(function(items){
-  res.json(items);
-});
-});
-
-// Need route for pulling a specified item from db (when user wants to view it)
-app.get("api/item_data/:id", function(req,res) {
-  db.Item.findOne({
-    include: db.User
-  }).then(function(items){
-    res.json(items);
+  // Route for viewing all items and associate with users that post them
+  // need foreign key in MySQL tables
+  app.get("/api/item_data", (req, res) => {
+    db.Item.findAll({
+      include: db.User
+    }).then(items => {
+      res.json(items);
+    });
   });
-});
 
-// Need route to view items by category (needs editing)
-app.get("api/item_data/:id", function(req,res) {
-  db.Item.findOne({
-    include: db.User
-  }).then(function(items){
-    res.json(items);
+  // Need route for pulling a specified item from db (when user wants to view it)
+  app.get("api/item_data/:id", (req, res) => {
+    db.Item.findOne({
+      include: db.User
+    }).then(items => {
+      res.json(items);
+    });
   });
-});
 
-// Need route to update item using PUT
-app.put("api/item_data", function(req,res) {
-  db.Item.update(req.body, {
+  // Need route to view items by category (needs editing)
+  app.get("api/item_data/:id", (req, res) => {
+    db.Item.findOne({
+      include: db.User
+    }).then(items => {
+      res.json(items);
+    });
+  });
+
+  // Need route to update item using PUT
+  app.put("api/item_data", (req, res) => {
+    db.Item.update(req.body, {
       where: {
         id: req.body.id
       }
-  }).then(function(dbItem){
-    res.json(dbItem);
-  })
-  .catch(function(err) {
-    res.json(err);
+    })
+      .then(dbItem => {
+        res.json(dbItem);
+      })
+      .catch(err => {
+        res.json(err);
+      });
   });
-});
 
-// Need route to view items listed under user
-app.get("api/user_data/:id", function(req,res) {
-  db.User.findOne({
-    include: db.Item
-  }).then(function(userItems){
-    res.json(userItems);
+  // Need route to view items listed under user
+  app.get("api/user_data/:id", (req, res) => {
+    db.User.findOne({
+      include: db.Item
+    }).then(userItems => {
+      res.json(userItems);
+    });
   });
-});
 
-// Need route to delete item
-app.delete("api/item_data/:id", function(req, res) {
-  db.Item.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbItem) {
-    res.json(dbItem);
+  // Need route to delete item
+  app.delete("api/item_data/:id", (req, res) => {
+    db.Item.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbItem => {
+      res.json(dbItem);
+    });
   });
-});
-
 };
