@@ -4,50 +4,51 @@ module.exports = function(sequelize, DataTypes) {
     // itemname is to populate listing title - required
     itemname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     // category is used to sort/filter the database table
     // this field should probably be used for a drop-down list of available categories
     // an open text field will not work
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
-    }
+      allowNull: false
+    },
     // price is only needed if available for sale - optional
     price: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     // description is for general information not covered by a specific field - optional
     description: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     // photo is for a photo of the item - optional
     photo: {
       type: DataTypes.BLOB,
-      allowNull: true,
+      allowNull: true
     },
     // sku_pic is for a photo of the item barcode, if any - optional
-    sku_pic: {
+    skuPic: {
       type: DataTypes.BLOB,
-      allowNull: true,
+      allowNull: true
     },
     // sell_indicator is a boolean "Is item available for direct purchase? Yes/No" - required
-    sell_indicator: {
+    sellIndicator: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: false
     },
     // trade_indicator is a boolean "Is item available for exchange? Yes/No" - required
-    trade_indicator: {
+    tradeIndicator: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: false
     },
     // new_used is a boolean "Is item new or used?" - required
-    new_used: {
+    // eslint-disable-next-line camelcase
+    newUsed: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   });
 
   Item.associate = function(models) {
@@ -57,6 +58,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-  
+
   return Item;
 };
