@@ -4,43 +4,43 @@ const bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
     // First name, last name, username, address1, city, state, and zip cannot be null.
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     address1: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     address2: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     state: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     zip: {
       type: DataTypes.INTEGER(5),
-      allowNull: false,
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    // The email cannot be null, and must be a proper email before creation 
+    // The email cannot be null, and must be a proper email before creation
     email: {
       type: DataTypes.STRING,
       allowNull: false,
