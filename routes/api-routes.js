@@ -20,7 +20,9 @@ module.exports = function(app) {
   app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -50,4 +52,22 @@ module.exports = function(app) {
       });
     }
   });
+//route for posting an item
+app.post("/api/itemPost", (req, res)=>{
+  db.Item.create({
+    itemName: req.body.itemName,
+    category: req.body.category,
+    price: req.body.price,
+    description: req.body.description,
+    photo: req.body.photo,
+    skuPic: req.body.photo,
+    sellIndicator: req.body.sellIndicator,
+    traderIndicator: req.body.traderIndicator,
+    newUsed: req.body.newUsed
+  });
+});
+
+app.get("/api/item_data", (req, res) =>{
+
+});
 };
