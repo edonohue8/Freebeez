@@ -48,6 +48,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    
+  });
+
+  Item.associate = function(models) {
+    Item.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  
   return Item;
 };
