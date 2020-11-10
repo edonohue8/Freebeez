@@ -1,4 +1,60 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: rgb(216, 216, 216);
 }
+
+
+h1 {
+  text-align: center;
+  padding-top: 15px;
+}
+
+button {
+  padding: 5px;
+  margin: 5px;
+  font-size: large;
+}
+
+header {
+  height: 70px;
+  font-size: 100px;
+  border-bottom: solid;
+  border-color: grey;
+  background-color: rgb(245, 240, 240);
+}
+
+a {
+  color: rgb(11, 67, 187);
+}
+
+input {
+  width: 150px;
+}
+
+.user_info {
+  font-size: x-large;
+  text-align: center;
+}
+
+.log_in {
+  font-size: large;
+  text-align: center;
+  background-color: rgb(245, 240, 240);
+  border: solid;
+  border-color: grey;
+  border-radius: 10%;
+  box-shadow: 10px 10px 5px grey;
+  padding: 10px;
+  padding-top: 10px;
+}
+
+.db {
+  background-color: rgb(245, 240, 240);
+  border: solid;
+  border-color: grey;
+  border-radius: 5%;
+  box-shadow: 10px 10px 5px grey;
+  height: 500px;
+}
+
+
