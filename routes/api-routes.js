@@ -73,9 +73,9 @@ module.exports = function(app) {
       price: req.body.price,
       description: req.body.description,
       photo: req.body.photo,
-      skuPic: req.body.photo,
+      skuPic: req.body.skuPic,
       sellIndicator: req.body.sellIndicator,
-      traderIndicator: req.body.traderIndicator,
+      traderIndicator: req.body.tradeIndicator,
       newUsed: req.body.newUsed
     });
   });
