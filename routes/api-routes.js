@@ -107,7 +107,7 @@ module.exports = function(app) {
   });
 
   // Need route to view items by category (needs editing)
-  app.get("api/item_data/:id", (req, res) => {
+  app.get("api/item_data/:category", (req, res) => {
     db.Item.findOne({
       include: db.User
     }).then(items => {
@@ -115,20 +115,21 @@ module.exports = function(app) {
     });
   });
 
+  // I don't think we need to allow updating of items - Joe
   // Need route to update item using PUT
-  app.put("api/item_data", (req, res) => {
-    db.Item.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(dbItem => {
-        res.json(dbItem);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
+  // app.put("api/item_data", (req, res) => {
+  //   db.Item.update(req.body, {
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   })
+  //     .then(dbItem => {
+  //       res.json(dbItem);
+  //     })
+  //     .catch(err => {
+  //       res.json(err);
+  //     });
+  // });
 
   // Need route to view items listed under user
   app.get("api/user_data/:id", (req, res) => {
