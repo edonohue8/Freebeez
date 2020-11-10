@@ -17,7 +17,7 @@ module.exports = {
 
 // This code was supplied to us as config.json
 // Don't know if it's needed for config.js
-// I'm not deleting yet in case we need it later
+// I'm not deleting yet in case we need it later - Joe
 // {
 //   "development": {
 //     "username": "root",
