@@ -19,10 +19,17 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
-      email: req.body.email,
-      password: req.body.password,
       firstName: req.body.firstName,
-      lastName: req.body.lastName
+      lastName: req.body.lastName,
+      username: req.body.username,
+      address1: req.body.address1,
+      address2: req.body.address2,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      phone: req.body.phone,
+      email: req.body.email,
+      password: req.body.password
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -112,7 +119,7 @@ module.exports = function(app) {
   app.put("api/item_data", (req, res) => {
     db.Item.update(req.body, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     })
       .then(dbItem => {
