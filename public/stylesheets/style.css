@@ -11,7 +11,7 @@ h1 {
 
 button {
   padding: 5px;
-  margin: 5px;
+  margin: 20px;
   font-size: large;
 }
 
@@ -33,7 +33,6 @@ input {
 
 .user_info {
   font-size: x-large;
-  text-align: center;
 }
 
 .log_in {
@@ -46,6 +45,8 @@ input {
   box-shadow: 10px 10px 5px grey;
   padding: 10px;
   padding-top: 10px;
+  width: 90%;
+  
 }
 
 .db {
@@ -57,4 +58,7 @@ input {
   height: 500px;
 }
 
+.float {
+  float: right;
+}
 
