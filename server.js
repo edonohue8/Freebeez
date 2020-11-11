@@ -18,9 +18,10 @@ app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true
+    secret: process.env.SESSION_SECRET, // gets SESSION_SECRET value from .env file - Joe
+    resave: true, // <-- determines whether session should be updated, even if user did not make a change; using false will save changes only if a change is made  - Joe
+    saveUninitialized: true // <-- creates cookie whenever user visits page, even if not logged in - Joe
+    // , cookie: { secure: true } <-- ??? - Joe
   })
 );
 app.use(passport.initialize());
