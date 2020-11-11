@@ -157,25 +157,25 @@ module.exports = function(app) {
 
 
 // Load in our dependencies
-var express = require('express');
-var jwt = require('jsonwebtoken');
+// var express = require('express');
+// var jwt = require('jsonwebtoken');
 
-var app = express();
+// var app = express();
 
 // Register the home route that displays a welcome message
 // This route can be accessed without a token
-app.get('/', function(req, res){
-  res.send("Welcome to our API");
-})
+// app.get('/', function(req, res){
+//   res.send("Welcome to our API");
+// })
 
 // Register the route to get a new token
 // In a real world scenario we would authenticate user credentials
 // before creating a token, but for simplicity accessing this route
 // will generate a new token that is valid for 2 minutes
-app.get('/token', function(req, res){
-  var token = jwt.sign({username:"ado"}, 'supersecret',{expiresIn: 120});
-  res.send(token)
-})
+// app.get('/token', function(req, res){
+//   var token = jwt.sign({username:"ado"}, 'supersecret',{expiresIn: 120});
+//   res.send(token)
+// })
 
 // Register a route that requires a valid token to view data
 /*app.get('/api', function(req, res){
