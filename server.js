@@ -9,7 +9,7 @@ const passport = require("./config/passport");
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
-
+const exphbs = require("express-handlebars");
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +26,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
