@@ -42,41 +42,42 @@
             <div class="col-md-12">
               <form class="signup">
                 <div class="user_info container">
-                  <label class="col-sm-5" for="exampleInputEmail1">First Name:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  {{!-- for="exampleInputEmail1" --}}
+                  <label class="col-sm-5" >First Name:</label>
+                  <input class="col-sm-6" type="text" id="first-name-input">
                   <br>
-                  <label class="col-sm-5" for="exampleInputEmail1">Last Name:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  <label class="col-sm-5">Last Name:</label>
+                  <input class="col-sm-6" id="last-name-input">
                   <br>
-                  <label class="col-sm-5" for="exampleInputEmail1">Address:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  <label class="col-sm-5">Address:</label>
+                  <input class="col-sm-6" id="address-input">
                   <br>
-                  <label class="col-sm-5" for="exampleInputEmail1">City:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  <label class="col-sm-5">City:</label>
+                  <input class="col-sm-6" id="city-input">
                   <br>
-                  <label class="col-sm-5" for="exampleInputEmail1">State:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  <label class="col-sm-5">State:</label>
+                  <input class="col-sm-6" id="state-input">
                   <br>
-                  <label class="col-sm-5" for="exampleInputEmail1">Zip:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  <label class="col-sm-5">Zip:</label>
+                  <input class="col-sm-6" id="zip-input">
                   <br>
-                  <label class="col-sm-5" for="exampleInputEmail1">Phone #:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
+                  <label class="col-sm-5">Phone #:</label>
+                  <input class="col-sm-6" id="phone-input">
                 </div>
                 <hr>
                 <div class="user_info">
-                  <label class="col-sm-5" for="exampleInputEmail1">EMAIL:</label>
-                  <input class="col-sm-6" type="email" id="email-input">
-                  <label class="col-sm-5" for="exampleInputPassword1">USERNAME:</label>
-                  <input class="col-sm-6" type="password" id="password-input">
-                  <label class="col-sm-5" for="exampleInputPassword1">PASSWORD:</label>
-                  <input class="col-sm-6" type="password" id="password-input">
+                  <label class="col-sm-5">EMAIL:</label>
+                  <input class="col-sm-6" id="email-input">
+                  <label class="col-sm-5">USERNAME:</label>
+                  <input class="col-sm-6" id="username-input">
+                  <label class="col-sm-5">PASSWORD:</label>
+                  <input class="col-sm-6" id="password-input">
                   <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Error:</span> <span class="msg"></span>
                   </div>
                 </div>
-                <button type="button" class="col-sm-8 col-sm-offset-2">Sign Up</button>
+                <button type="submit" value="submit" form="signup" class="col-sm-8 col-sm-offset-2">Sign Up</button>
               </form>
             </div>
           </div>
