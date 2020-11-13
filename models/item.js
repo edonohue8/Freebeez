@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     // photo is for a photo of the item - optional
-    photo: {
+    photoLocation: {
       type: DataTypes.BLOB,
       allowNull: true
     },

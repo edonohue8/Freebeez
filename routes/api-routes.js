@@ -81,13 +81,20 @@ module.exports = function(app) {
       category: req.body.category,
       price: req.body.price,
       description: req.body.description,
-      photo: req.body.photo,
       skuPic: req.body.skuPic,
       sellIndicator: req.body.sellIndicator,
       traderIndicator: req.body.tradeIndicator,
       newUsed: req.body.newUsed
-    });
+    }).then( (item) => {
+      // respond back with the item id
+      res.json(item.id)
+    })
   });
+
+// 2 step process 
+// 1 create the item (and get the item id of the newly created item )
+// upload photo (and associate the photo wih the item id )
+// done 
 
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables
