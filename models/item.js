@@ -28,22 +28,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BLOB,
       allowNull: true
     },
-    // sku_pic is for a photo of the item barcode, if any - optional
+    // skuPic is for a photo of the item barcode, if any - optional
     skuPic: {
       type: DataTypes.BLOB,
       allowNull: true
     },
-    // sell_indicator is a boolean "Is item available for direct purchase? Yes/No" - required
+    // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
     sellIndicator: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    // trade_indicator is a boolean "Is item available for exchange? Yes/No" - required
+    // tradeIndicator is a boolean "Is item available for exchange? Yes/No" - required
     tradeIndicator: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    // new_used is a boolean "Is item new or used?" - required
+    // newUsed is a boolean "Is item new or used?" - required
     // eslint-disable-next-line camelcase
     newUsed: {
       type: DataTypes.BOOLEAN,

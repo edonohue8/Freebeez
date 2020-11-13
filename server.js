@@ -1,4 +1,5 @@
 // Need to require dotenv
+// require("dotenv").config();
 
 // Requiring necessary npm packages
 const express = require("express");
