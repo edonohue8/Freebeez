@@ -13,7 +13,6 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
   // When the signup button is clicked, we validate the email and password are not blank
-  console.log(firstNameInput);
   signUpForm.on("submit", event => {
     event.preventDefault();
     const userData = {
@@ -24,15 +23,35 @@ $(document).ready(() => {
       city: cityInput.val().trim(),
       state: stateInput.val().trim(),
       zip: zipInput.val().trim(),
-      phone: phoneInput.val.trim(),
+      phone: phoneInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
     if (!userData.email || !userData.password) {
+      console.log(userData);
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password);
+    signUpUser(
+      userData.firstName,
+      userData.lastName,
+      userData.username,
+      userData.address1,
+      userData.city,
+      userData.state,
+      userData.zip,
+      userData.phone,
+      userData.email,
+      userData.password
+    );
+    firstNameInput.val("");
+    lastNameInput.val("");
+    usernameInput.val("");
+    addressInput.val("");
+    cityInput.val("");
+    stateInput.val("");
+    zipInput.val("");
+    phoneInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
