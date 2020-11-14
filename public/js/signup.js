@@ -13,7 +13,6 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
   // When the signup button is clicked, we validate the email and password are not blank
-  // console.log(firstNameInput);
   signUpForm.on("submit", event => {
     event.preventDefault();
     const userData = {
@@ -29,6 +28,7 @@ $(document).ready(() => {
       password: passwordInput.val().trim()
     };
     if (!userData.email || !userData.password) {
+      console.log(userData);
       return;
     }
     // If we have an email and password, run the signUpUser function
