@@ -1,7 +1,9 @@
 $(document).ready(() => {
   console.log("test");
   // Getting references to our form and input
-  const signUpForm = $("form.signup");
+  // Commented out the next line because the signUpForm variable is never used
+  // const signUpForm = $("form.signup");
+
   const firstNameInput = $("input#first-name-input");
   const lastNameInput = $("input#last-name-input");
   const usernameInput = $("input#username-input");
@@ -10,11 +12,12 @@ $(document).ready(() => {
   const stateInput = $("input#state-input");
   const zipInput = $("input#zip-input");
   const phoneInput = $("input#phone-input");
-  const emailInput = $("input.email-input");
-  const passwordInput = $("input.password-input");
-  // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", event => {
+  const emailInput = $("input#email-input");
+  const passwordInput = $("input#password-input");
+
+  $(".signup-button").on("click", event => {
     event.preventDefault();
+
     const userData = {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
@@ -70,6 +73,7 @@ $(document).ready(() => {
     email,
     password
   ) {
+    console.log("we are here");
     $.post("/api/signup", {
       firstName: firstName,
       lastName: lastName,
@@ -82,7 +86,8 @@ $(document).ready(() => {
       email: email,
       password: password
     })
-      .then(() => {
+      .then(response => {
+        console.log(response);
         window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
       })

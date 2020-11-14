@@ -76,6 +76,8 @@ app.post("/upload/:item", (req, res) => {
           success: true,
           successMessage: "Success!"
         });
+        // eslint-disable-next-line no-empty
+      } else {
       }
     });
   });
