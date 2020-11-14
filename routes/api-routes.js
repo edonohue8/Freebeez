@@ -23,7 +23,7 @@ module.exports = function(app) {
       lastName: req.body.lastName,
       username: req.body.username,
       address1: req.body.address1,
-      address2: req.body.address2,
+      // address2: req.body.address2,
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
@@ -46,7 +46,7 @@ module.exports = function(app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
+  app.get("/api/userData", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -61,9 +61,9 @@ module.exports = function(app) {
   });
 
   // Need route to delete user WITH items associated with user
-// this code alone shall be able to delte user and everything associated with user like user items
+  // this code alone shall be able to delte user and everything associated with user like user items
 
-  app.delete("api/user_data/:id", (req, res) => {
+  app.delete("api/userData/:id", (req, res) => {
     db.User.destroy({
       include: db.Item,
       where: {
@@ -85,16 +85,16 @@ module.exports = function(app) {
       sellIndicator: req.body.sellIndicator,
       traderIndicator: req.body.tradeIndicator,
       newUsed: req.body.newUsed
-    }).then( (item) => {
+    }).then(item => {
       // respond back with the item id
-      res.json(item.id)
-    })
+      res.json(item.id);
+    });
   });
 
-// 2 step process 
-// 1 create the item (and get the item id of the newly created item )
-// upload photo (and associate the photo wih the item id )
-// done 
+  // 2 step process
+  // 1 create the item (and get the item id of the newly created item )
+  // upload photo (and associate the photo wih the item id )
+  // done
 
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables
@@ -141,7 +141,7 @@ module.exports = function(app) {
   // });
 
   // Need route to view items listed under user
-  app.get("api/user_data/:id", (req, res) => {
+  app.get("api/userData/:id", (req, res) => {
     db.User.findOne({
       include: db.Item
     }).then(userItems => {
@@ -161,7 +161,6 @@ module.exports = function(app) {
     });
   });
 };
-
 
 // Load in our dependencies
 // var express = require('express');

@@ -49,14 +49,13 @@ passport.deserializeUser((obj, cb) => {
 
 // Above is the code we were given, below is code I found online
 // If we have any trouble with the code we were given, this may help
-  // passport.deserializeUser(function(id, done) {
-    // User.loadOne({ _id: id }).then(function(user) {
-    // done(null, user);
-  //}).catch(function(err) {
-    // done(err, null);
-    // });
-  // });
-
+// passport.deserializeUser(function(id, done) {
+// User.loadOne({ _id: id }).then(function(user) {
+// done(null, user);
+//}).catch(function(err) {
+// done(err, null);
+// });
+// });
 
 // Exporting our configured passport
 module.exports = passport;
