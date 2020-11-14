@@ -46,7 +46,7 @@ module.exports = function(app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/userData", (req, res) => {
+  app.get("/api/user_data", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -63,7 +63,7 @@ module.exports = function(app) {
   // Need route to delete user WITH items associated with user
   // this code alone shall be able to delte user and everything associated with user like user items
 
-  app.delete("api/userData/:id", (req, res) => {
+  app.delete("api/user_data/:id", (req, res) => {
     db.User.destroy({
       include: db.Item,
       where: {
@@ -75,7 +75,7 @@ module.exports = function(app) {
   });
 
   //route for posting or adding an item
-  app.post("/api/itemPost", (req, res) => {
+  app.post("/api/item_post", (req, res) => {
     db.Item.create({
       itemName: req.body.itemName,
       category: req.body.category,
@@ -141,7 +141,7 @@ module.exports = function(app) {
   // });
 
   // Need route to view items listed under user
-  app.get("api/userData/:id", (req, res) => {
+  app.get("api/user_data/:id", (req, res) => {
     db.User.findOne({
       include: db.Item
     }).then(userItems => {

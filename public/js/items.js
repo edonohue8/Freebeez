@@ -10,7 +10,7 @@ $(document).ready(() => {
   $(document).on("click", "button.delete", handleItemDelete);
   //new item boxes
   const titleInput = $("");
-  const itemSelect = $("");
+  // const itemSelect = $("");
   const category = $("");
   const price = $("");
   const description = $("");
@@ -71,17 +71,17 @@ $(document).ready(() => {
   }
 
   //categories for the items in possible drop down
-  function getCategories() {
-    $.get("/api/categories", renderCategories);
-  }
+  // function getCategories() {
+  //   $.get("/api/categories", renderCategories);
+  // }
   //gets all the items from the created items data api
   function getItems() {
     $.get("/api/item_data");
   }
   //function to render the list of categories
-  function renderCategories() {
-    itemSelect.val(itemId);
-  }
+  // function renderCategories() {
+  //   itemSelect.val(itemId);
+  // }
 
   // This function does an API call to delete items
   function deleteItem(id) {

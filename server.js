@@ -67,7 +67,7 @@ app.post("/upload/:item", (req, res) => {
     }).then(async foundItem => {
       if (foundItem) {
         // u will need to figure this out yourself (rough estimation of actual code, about 70% correct)
-        foundItem.photoLocation = req.files["photo"];
+        foundItem.photoLocation = req.files.photo;
         // resave item so we know that the file is upload and the path was stored
         await foundItem.save();
 
@@ -76,7 +76,6 @@ app.post("/upload/:item", (req, res) => {
           success: true,
           successMessage: "Success!"
         });
-      } else {
       }
     });
   });
