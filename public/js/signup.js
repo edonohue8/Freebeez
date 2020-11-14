@@ -10,8 +10,8 @@ $(document).ready(() => {
   const stateInput = $("input#state-input");
   const zipInput = $("input#zip-input");
   const phoneInput = $("input#phone-input");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
+  const emailInput = $("input.email-input");
+  const passwordInput = $("input.password-input");
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();

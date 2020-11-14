@@ -4,8 +4,8 @@ $(document).ready(() => {
   //ajax to grab them
   // ex.
   // const loginForm = $("form.login");
-  // const emailInput = $("input#email-input");
-  // const passwordInput = $("input#password-input");
+  // const emailInput = $("input.email-input");
+  // const passwordInput = $("input.password-input");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handleItemDelete);
   //new item boxes
