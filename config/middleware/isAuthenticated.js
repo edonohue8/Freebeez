@@ -8,10 +8,3 @@ module.exports = function(req, res, next) {
   // If the user isn't logged in, redirect them to the login page
   return res.redirect("/");
 };
-
-// Use passport.authenticate(), specifying the 'local' strategy, to authenticate requests.
-// app.post('/login',
-//   passport.authenticate('local', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.redirect('/');
-//   });

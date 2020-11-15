@@ -7,11 +7,7 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
+    res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -19,15 +15,6 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      username: req.body.username,
-      address1: req.body.address1,
-      // address2: req.body.address2,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
-      phone: req.body.phone,
       email: req.body.email,
       password: req.body.password
     })
@@ -41,8 +28,25 @@ module.exports = function(app) {
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
-    // will not work because logout doesnt exist req.logout();
+    req.logout();
     res.redirect("/");
+  });
+
+  //route for posting or adding an item
+  app.post("/api/itemPost", (req, res) => {
+    db.Item.create({
+      itemName: req.body.itemName,
+      // category: req.body.category,
+      // price: req.body.price,
+      // description: req.body.description,
+      // skuPic: req.body.skuPic,
+      // sellIndicator: req.body.sellIndicator,
+      // traderIndicator: req.body.tradeIndicator,
+      // newUsed: req.body.newUsed
+    }).then(item => {
+      // respond back with the item id
+      res.json(item.id);
+    });
   });
 
   // Route for getting some data about our user to be used client side
@@ -161,40 +165,3 @@ module.exports = function(app) {
     });
   });
 };
-
-// Load in our dependencies
-// var express = require('express');
-// var jwt = require('jsonwebtoken');
-
-// var app = express();
-
-// Register the home route that displays a welcome message
-// This route can be accessed without a token
-// app.get('/', function(req, res){
-//   res.send("Welcome to our API");
-// })
-
-// Register the route to get a new token
-// In a real world scenario we would authenticate user credentials
-// before creating a token, but for simplicity accessing this route
-// will generate a new token that is valid for 2 minutes
-// app.get('/token', function(req, res){
-//   var token = jwt.sign({username:"ado"}, 'supersecret',{expiresIn: 120});
-//   res.send(token)
-// })
-
-// Register a route that requires a valid token to view data
-/*app.get('/api', function(req, res){
-  var token = req.query.token;
-  jwt.verify(token, 'supersecret', function(err, decoded){
-    if(!err){
-      var secrets = {"" : "","" : "","" : ""};
-      res.json(secrets);
-    } else {
-      res.send(err);
-    }
-  })
-})
-
-// Launch our app on port ""
-app.listen('');*/
