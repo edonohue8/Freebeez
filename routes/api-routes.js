@@ -1,39 +1,56 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+const db = require("../models");
+const passport = require("../config/passport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
+  app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
       password: req.body.password
     })
-      .then(function() {
+      .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(function(err) {
+      .catch(err => {
         res.status(401).json(err);
       });
   });
 
   // Route for logging user out
-  app.get("/logout", function(req, res) {
+  app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
 
+  //route for posting or adding an item
+  app.post("/api/itemPost", (req, res) => {
+    db.Item.create({
+      itemName: req.body.itemName,
+      // category: req.body.category,
+      // price: req.body.price,
+      // description: req.body.description,
+      // skuPic: req.body.skuPic,
+      // sellIndicator: req.body.sellIndicator,
+      // traderIndicator: req.body.tradeIndicator,
+      // newUsed: req.body.newUsed
+    }).then(item => {
+      // respond back with the item id
+      res.json(item.id);
+    });
+  });
+
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
+  app.get("/api/user_data", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});

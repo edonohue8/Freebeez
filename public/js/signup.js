@@ -1,13 +1,13 @@
-$(document).ready(function() {
+$(document).ready(() => {
   // Getting references to our form and input
-  var signUpForm = $("form.signup");
-  var emailInput = $("input#email-input2");
-  var passwordInput = $("input#password-input2");
+  const signUpForm = $("form.signup");
+  const emailInput = $("input#email-input2");
+  const passwordInput = $("input#password-input2");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", event => {
     event.preventDefault();
-    var userData = {
+    const userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
@@ -28,7 +28,7 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function(data) {
+      .then(() => {
         //close modal
         window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
