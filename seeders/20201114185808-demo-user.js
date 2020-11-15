@@ -10,35 +10,13 @@ module.exports = {
       "Users",
       [
         {
-          firstName: "John",
-          lastName: "Doe",
-          userName: "johndoe",
-          address1: "123 Street Avenue",
-          city: "Anytown",
-          state: "CA",
-          zip: 90210,
-          phone: "(800) 867-5309",
           email: "example@example.com",
           password: "password",
           createdAt: new Date(),
           updatedAt: new Date(),
           UserId: 1
-          // {
-          //   type: Sequelize.UUID,
-          //   defaultValue: Sequelize.UUIDV4,
-          //   allowNull: false,
-          //   primaryKey: true
-          // }
         },
         {
-          firstName: "Bob",
-          lastName: "Smith",
-          userName: "bobsmith",
-          address1: "456 Road Drive",
-          city: "Anytown",
-          state: "CA",
-          zip: 90210,
-          phone: "(800) 987-6543",
           email: "bob@smith.net",
           password: "password",
           createdAt: new Date(),
@@ -52,14 +30,6 @@ module.exports = {
           // }
         },
         {
-          firstName: "Lucille",
-          lastName: "Van Pelt",
-          userName: "lucyvp",
-          address1: "789 Camino Boulevard",
-          city: "Anytown",
-          state: "CA",
-          zip: 90210,
-          phone: "(800) 789-4561",
           email: "lucille@vanpelt.net",
           password: "password",
           createdAt: new Date(),
