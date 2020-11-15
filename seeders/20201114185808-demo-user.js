@@ -15,6 +15,12 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
           UserId: 1
+          // {
+          //   type: Sequelize.UUID,
+          //   defaultValue: Sequelize.UUIDV4,
+          //   allowNull: false,
+          //   primaryKey: true
+          // }
         },
         {
           email: "bob@smith.net",
