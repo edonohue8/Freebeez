@@ -1,7 +1,8 @@
 $(document).ready(() => {
   console.log("test");
   // Getting references to our form and input
-  const signUpForm = $("form.signup");
+  // Commented out the next line because the signUpForm variable is never used
+  // const signUpForm = $("form.signup");
 
   const firstNameInput = $("input#first-name-input");
   const lastNameInput = $("input#last-name-input");
@@ -26,8 +27,8 @@ $(document).ready(() => {
       state: stateInput.val().trim(),
       zip: zipInput.val().trim(),
       phone: phoneInput.val().trim(),
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      email: emailInput.val(),
+      password: passwordInput.val()
     };
     if (!userData.email || !userData.password) {
       console.log(userData);
