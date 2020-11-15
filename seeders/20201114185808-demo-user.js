@@ -29,6 +29,48 @@ module.exports = {
           //   allowNull: false,
           //   primaryKey: true
           // }
+        },
+        {
+          firstName: "Bob",
+          lastName: "Smith",
+          userName: "bobsmith",
+          address1: "456 Road Drive",
+          city: "Anytown",
+          state: "CA",
+          zip: 90210,
+          phone: "(800) 987-6543",
+          email: "bob@smith.net",
+          password: "password",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          UserId: 2
+          // {
+          //   type: Sequelize.UUID,
+          //   defaultValue: Sequelize.UUIDV4,
+          //   allowNull: false,
+          //   primaryKey: true
+          // }
+        },
+        {
+          firstName: "Lucille",
+          lastName: "Van Pelt",
+          userName: "lucyvp",
+          address1: "789 Camino Boulevard",
+          city: "Anytown",
+          state: "CA",
+          zip: 90210,
+          phone: "(800) 789-4561",
+          email: "lucille@vanpelt.net",
+          password: "password",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          UserId: 3
+          // {
+          //   type: Sequelize.UUID,
+          //   defaultValue: Sequelize.UUIDV4,
+          //   allowNull: false,
+          //   primaryKey: true
+          // }
         }
       ],
       {}
@@ -55,6 +97,34 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
           UserId: 1
+        },
+        {
+          itemName: "Doohickey",
+          category: "Other",
+          price: "$10.00",
+          description: "This is a Doohickey, not a Thingamajig.",
+          // photoLocation: ,
+          sellIndicator: true,
+          tradeIndicator: true,
+          newUsed: false,
+          itemId: userRows[0].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          UserId: 2
+        },
+        {
+          itemName: "Whatchamacallit",
+          category: "Other",
+          price: "$100.00",
+          description: "This is the best Whatchamacallit money can buy.",
+          // photoLocation: ,
+          sellIndicator: false,
+          tradeIndicator: true,
+          newUsed: true,
+          itemId: userRows[0].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          UserId: 3
         }
       ],
       {}
