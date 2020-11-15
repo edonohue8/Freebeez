@@ -1,6 +1,3 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const db = require("../../models");
 // This is middleware for restricting routes a user is not allowed to visit if not logged in
 module.exports = function(req, res, next) {
   // If the user is logged in, continue with the request to the restricted route
@@ -11,24 +8,6 @@ module.exports = function(req, res, next) {
   // If the user isn't logged in, redirect them to the login page
   return res.redirect("/");
 };
-
-//The local authentication strategy authenticates users using a username and password. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.
-passport.use(
-  new LocalStrategy((username, password, done) => {
-    db.User.findOne({ username: username }, (err, user) => {
-      if (err) {
-        return done(err);
-      }
-      if (!user) {
-        return done(null, false);
-      }
-      if (!user.verifyPassword(password)) {
-        return done(null, false);
-      }
-      return done(null, user);
-    });
-  })
-);
 
 // Use passport.authenticate(), specifying the 'local' strategy, to authenticate requests.
 // app.post('/login',

@@ -20,10 +20,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    address2: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     city: {
       type: DataTypes.STRING,
       allowNull: false
@@ -53,12 +49,6 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    UserId: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true
     }
   });
 

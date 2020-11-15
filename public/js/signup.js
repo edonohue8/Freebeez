@@ -27,8 +27,8 @@ $(document).ready(() => {
       state: stateInput.val().trim(),
       zip: zipInput.val().trim(),
       phone: phoneInput.val().trim(),
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      email: emailInput.val(),
+      password: passwordInput.val()
     };
     if (!userData.email || !userData.password) {
       console.log(userData);

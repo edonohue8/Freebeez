@@ -1,10 +1,12 @@
 "use strict";
 
-const Sequelize = require("sequelize");
+// const Sequelize = require("sequelize");
+
+// alternate "up: async (queryInterface, Sequelize) => {"
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert(
+  up: async queryInterface => {
+    await queryInterface.bulkInsert(
       "Users",
       [
         {
@@ -20,26 +22,24 @@ module.exports = {
           password: "password",
           createdAt: new Date(),
           updatedAt: new Date(),
-          UserId: {
-            type: Sequelize.UUID,
-            defaultValue: Sequelize.UUIDV4,
-            allowNull: false,
-            primaryKey: true
-          }
+          UserId: 1
+          // {
+          //   type: Sequelize.UUID,
+          //   defaultValue: Sequelize.UUIDV4,
+          //   allowNull: false,
+          //   primaryKey: true
+          // }
         }
       ],
       {}
     );
-  },
 
-  down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Users", null, {});
-  }
-};
+    // eslint-disable-next-line quotes
+    const users = await queryInterface.sequelize.query(`SELECT id from USERS;`);
 
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert(
+    const userRows = users[0];
+
+    return await queryInterface.bulkInsert(
       "Items",
       [
         {
@@ -51,15 +51,19 @@ module.exports = {
           sellIndicator: true,
           tradeIndicator: false,
           newUsed: false,
+          itemId: userRows[0].id,
           createdAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date(),
+          UserId: 1
         }
       ],
       {}
     );
   },
 
-  down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Items", null, {});
+  // alternate "down: async (queryInterface, Sequelize) => {"
+  down: async queryInterface => {
+    await queryInterface.bulkDelete("Users", null, {});
+    await queryInterface.bulkDelete("Items", null, {});
   }
 };

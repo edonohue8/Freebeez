@@ -24,15 +24,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     // photo is for a photo of the item - optional
-    photoLocation: {
-      type: DataTypes.BLOB,
-      allowNull: true
-    },
-    // skuPic is for a photo of the item barcode, if any - optional
-    skuPic: {
-      type: DataTypes.BLOB,
-      allowNull: true
-    },
+    // photoLocation: {
+    //   type: DataTypes.BLOB,
+    //   allowNull: true
+    // },
     // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
     sellIndicator: {
       type: DataTypes.BOOLEAN,
@@ -47,6 +42,11 @@ module.exports = function(sequelize, DataTypes) {
     // eslint-disable-next-line camelcase
     newUsed: {
       type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    // itemId is to associate the item to the user
+    itemId: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   });
