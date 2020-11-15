@@ -38,6 +38,10 @@ module.exports = function(sequelize, DataTypes) {
     newUsed: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    },
+    ItemId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
 
