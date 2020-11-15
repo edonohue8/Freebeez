@@ -63,4 +63,105 @@ module.exports = function(app) {
       });
     }
   });
+
+  // Need route to delete user WITH items associated with user
+  // this code alone shall be able to delte user and everything associated with user like user items
+
+  app.delete("api/user_data/:id", (req, res) => {
+    db.User.destroy({
+      include: db.Item,
+      where: {
+        id: req.params.id
+      }
+    }).then(dbItem => {
+      res.json(dbItem);
+    });
+  });
+
+  //route for posting or adding an item
+  app.post("/api/item_post", (req, res) => {
+    db.Item.create({
+      itemName: req.body.itemName,
+      category: req.body.category,
+      price: req.body.price,
+      description: req.body.description,
+      skuPic: req.body.skuPic,
+      sellIndicator: req.body.sellIndicator,
+      traderIndicator: req.body.tradeIndicator,
+      newUsed: req.body.newUsed
+    }).then(item => {
+      // respond back with the item id
+      res.json(item.id);
+    });
+  });
+
+  // 2 step process
+  // 1 create the item (and get the item id of the newly created item )
+  // upload photo (and associate the photo wih the item id )
+  // done
+
+  // Route for viewing all items and associate with users that post them
+  // need foreign key in MySQL tables
+  app.get("/api/item_data", (req, res) => {
+    db.Item.findAll({
+      include: db.User
+    }).then(items => {
+      res.json(items);
+    });
+  });
+
+  // Need route for pulling a specified item from db (when user wants to view it)
+  app.get("api/item_data/:id", (req, res) => {
+    db.Item.findOne({
+      include: db.User
+    }).then(items => {
+      res.json(items);
+    });
+  });
+
+  // Need route to view items by category (needs editing)
+  app.get("api/item_data/:category", (req, res) => {
+    db.Item.findOne({
+      include: db.User
+    }).then(items => {
+      res.json(items);
+    });
+  });
+
+  // I don't think we need to allow updating of items - Joe
+  // Need route to update item using PUT
+  // app.put("api/item_data", (req, res) => {
+  //   db.Item.update(req.body, {
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   })
+  //     .then(dbItem => {
+  //       res.json(dbItem);
+  //     })
+  //     .catch(err => {
+  //       res.json(err);
+  //     });
+  // });
+
+  // Need route to view items listed under user
+  app.get("api/user_data/:id", (req, res) => {
+    db.User.findOne({
+      include: db.Item
+    }).then(userItems => {
+      res.json(userItems);
+    });
+  });
+
+  // Need route to delete item
+  //might not need this due to line 66 being responsible for deleting all of user and everything associated with user
+  app.delete("api/item_data/:id", (req, res) => {
+    db.Item.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbItem => {
+      res.json(dbItem);
+    });
+  });
 };
