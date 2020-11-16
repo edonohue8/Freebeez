@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     // an open text field will not work
     category: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     // price is only needed if available for sale - optional
     price: {
@@ -21,24 +21,24 @@ module.exports = function(sequelize, DataTypes) {
     // description is for general information not covered by a specific field - optional
     description: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
+      allowNull: false
+    }
     // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
-    sellIndicator: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
+    // sellIndicator: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true
+    // },
     // tradeIndicator is a boolean "Is item available for exchange? Yes/No" - required
-    tradeIndicator: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
+    // tradeIndicator: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true
+    // },
     // newUsed is a boolean "Is item new or used?" - required
     // eslint-disable-next-line camelcase
-    newUsed: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    }
+    // newUsed: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true
+    // }
   });
 
   Item.associate = function(models) {
