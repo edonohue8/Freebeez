@@ -13,8 +13,8 @@ module.exports = {
           email: "example@example.com",
           password: "password",
           createdAt: new Date(),
-          updatedAt: new Date(),
-          UserId: 1
+          updatedAt: new Date()
+          // UserId: 1
           // {
           //   type: Sequelize.UUID,
           //   defaultValue: Sequelize.UUIDV4,
@@ -26,8 +26,8 @@ module.exports = {
           email: "bob@smith.net",
           password: "password",
           createdAt: new Date(),
-          updatedAt: new Date(),
-          UserId: 2
+          updatedAt: new Date()
+          // UserId: 2
           // {
           //   type: Sequelize.UUID,
           //   defaultValue: Sequelize.UUIDV4,
@@ -39,8 +39,8 @@ module.exports = {
           email: "lucille@vanpelt.net",
           password: "password",
           createdAt: new Date(),
-          updatedAt: new Date(),
-          UserId: 3
+          updatedAt: new Date()
+          // UserId: 3
           // {
           //   type: Sequelize.UUID,
           //   defaultValue: Sequelize.UUIDV4,
@@ -69,10 +69,10 @@ module.exports = {
           sellIndicator: true,
           tradeIndicator: false,
           newUsed: false,
-          itemId: userRows[0].id,
+          // itemId: userRows[0].id,
           createdAt: new Date(),
-          updatedAt: new Date(),
-          UserId: 1
+          updatedAt: new Date()
+          // UserId: 1
         },
         {
           itemName: "Doohickey",
@@ -83,10 +83,10 @@ module.exports = {
           sellIndicator: true,
           tradeIndicator: true,
           newUsed: false,
-          itemId: userRows[0].id,
+          // itemId: userRows[0].id,
           createdAt: new Date(),
-          updatedAt: new Date(),
-          UserId: 2
+          updatedAt: new Date()
+          // UserId: 2
         },
         {
           itemName: "Whatchamacallit",
@@ -97,10 +97,10 @@ module.exports = {
           sellIndicator: false,
           tradeIndicator: true,
           newUsed: true,
-          itemId: userRows[0].id,
+          // itemId: userRows[0].id,
           createdAt: new Date(),
-          updatedAt: new Date(),
-          UserId: 3
+          updatedAt: new Date()
+          // UserId: 3
         }
       ],
       {}
