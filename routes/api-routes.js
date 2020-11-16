@@ -81,14 +81,14 @@ module.exports = function(app) {
   //route for posting or adding an item
   app.post("/api/item_post", (req, res) => {
     db.Item.create({
-      itemName: req.body.itemName
-      // category: req.body.category,
-      // price: req.body.price,
-      // description: req.body.description,
-      // skuPic: req.body.skuPic,
-      // sellIndicator: req.body.sellIndicator,
-      // traderIndicator: req.body.tradeIndicator,
-      // newUsed: req.body.newUsed
+      itemName: req.body.itemName,
+      category: req.body.category,
+      price: req.body.price,
+      description: req.body.description,
+      skuPic: req.body.skuPic,
+      sellIndicator: req.body.sellIndicator,
+      traderIndicator: req.body.tradeIndicator,
+      newUsed: req.body.newUsed
     }).then(item => {
       // respond back with the item id
       res.json(item.id);
