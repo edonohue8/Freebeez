@@ -1,19 +1,19 @@
 // Getting references to our form and inputs
 $(document).ready(() => {
-  // const addAnItem = $("form.addItem");
-  // const itemNameInput = $("input#item-name");
-  // const categoryInput = $("input#category");
-  // const priceInput = $("input#price");
+  const addAnItem = $("form.addItem");
+  const itemNameInput = $("input#item-name");
+  const categoryInput = $("input#category");
+  const priceInput = $("input#price");
 
-  // addAnItem.on("submit", event => {
-  //   event.preventDefault();
-  //   const itemData = {
-  //     itemName: itemNameInput.val().trim(),
-  //     category: categoryInput.val().trim(),
-  //     price: priceInput.val().trim()
-  //   };
-  //   console.log(itemData);
-  // });
+  addAnItem.on("submit", event => {
+    event.preventDefault();
+    const itemData = {
+      itemName: itemNameInput.val().trim(),
+      category: categoryInput.val().trim(),
+      price: priceInput.val().trim()
+    };
+    console.log(itemData);
+  });
 
   //ned to add the table id's or classes to use
   //ajax to grab them
