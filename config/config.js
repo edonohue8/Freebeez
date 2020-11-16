@@ -40,5 +40,3 @@ module.exports =
       "dialect": "mysql"
     }
   };
-
-// please do not remove this line - JCT "password": "jGs~1M:eYmJI",

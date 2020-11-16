@@ -42,7 +42,7 @@ $(document).ready(() => {
     // skuPic:
     sellIndicator: sellIndicator.val().trim(),
     tradeIndicator: tradeIndicator.val().trim(),
-    newUsed: newUsed.val().trim()
+    newUsed: newUsed.val().trim(),
   };
 
   // If we're updating a post run updatePost to update a post
