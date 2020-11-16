@@ -38,18 +38,13 @@ module.exports = function(sequelize, DataTypes) {
     newUsed: {
       type: DataTypes.BOOLEAN,
       allowNull: false
-    },
-    ItemId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   });
 
   Item.associate = function(models) {
     Item.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "user_id",
+      onDelete: "cascade"
     });
   };
 
