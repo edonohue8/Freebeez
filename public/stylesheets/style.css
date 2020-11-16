@@ -7,3 +7,25 @@ form.login {
   border: solid;
   height: 400px
 };
+
+button.submit {
+  float: right;
+}
+
+.item-container {
+  margin-top: 50px;
+}
+
+.item-list {
+  margin-top: 25px;
+}
+
+#item-name {
+  width: 100%;
+  height: 35px;
+  margin-top: 5px;
+}
+
+table, th, td {
+  border: 20px solid black;
+}

@@ -11,12 +11,12 @@ module.exports = function(sequelize, DataTypes) {
     // an open text field will not work
     category: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     // price is only needed if available for sale - optional
     price: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     // description is for general information not covered by a specific field - optional
     description: {
@@ -26,18 +26,18 @@ module.exports = function(sequelize, DataTypes) {
     // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
     sellIndicator: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: true
     },
     // tradeIndicator is a boolean "Is item available for exchange? Yes/No" - required
     tradeIndicator: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: true
     },
     // newUsed is a boolean "Is item new or used?" - required
     // eslint-disable-next-line camelcase
     newUsed: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: true
     }
   });
 
