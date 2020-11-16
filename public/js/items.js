@@ -15,26 +15,29 @@ $(document).ready(() => {
       description: descriptionInput.val().trim()
     };
 
-    if (!itemData.itemName || !itemData.price) {
+    if (!itemData.itemName) {
       return;
     }
 
-    addItem(itemData.itemName, itemData.price);
+    addItem(
+      itemData.itemName,
+      itemData.category,
+      itemData.price,
+      itemData.description
+    );
     itemNameInput.val("");
+    categoryInput.val("");
     priceInput.val("");
+    descriptionInput.val("");
   });
 
-  
-  
-  function addItem(itemName, price) {
+  function addItem(itemName, category, price, description) {
     $.post("/api/item_post", {
       itemName: itemName,
-      price: price
+      category: category,
+      price: price,
+      description: description
     });
-
-
-
-
 
     // .then(() => {
     //   //close modal
