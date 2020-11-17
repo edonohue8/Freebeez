@@ -82,6 +82,7 @@ module.exports = function(app) {
 
   //route for posting or adding an item
   app.post("/api/item_post", (req, res) => {
+    console.log(req.body.UserId)
     db.Item.create({
       itemName: req.body.itemName,
       category: req.body.category,
@@ -90,7 +91,8 @@ module.exports = function(app) {
       skuPic: req.body.skuPic,
       sellIndicator: req.body.sellIndicator,
       traderIndicator: req.body.tradeIndicator,
-      newUsed: req.body.newUsed
+      newUsed: req.body.newUsed,
+      UserId: req.body.UserId
     }).then(item => {
       // respond back with the item id
       res.json(item.id);
@@ -105,8 +107,13 @@ module.exports = function(app) {
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables
   app.get("/api/item_data", (req, res) => {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
     db.Item.findAll({
-      include: db.User
+      where: query,
+      include: [db.User]
     }).then(items => {
       res.json(items);
     });
@@ -115,7 +122,10 @@ module.exports = function(app) {
   // Need route for pulling a specified item from db (when user wants to view it)
   app.get("/api/item_data/:id", (req, res) => {
     db.Item.findOne({
-      include: db.User
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
     }).then(items => {
       res.json(items);
     });
@@ -152,7 +162,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: db.Item
+      include: [db.Item]
     }).then(userItems => {
       res.json(userItems);
     });
