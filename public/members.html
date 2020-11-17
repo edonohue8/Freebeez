@@ -8,27 +8,27 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
-      </div>
-    </div>
+  <nav class="head">
+    <h1>You Shouldn't Have</h1>
   </nav>
-
+  &nbsp;
   <div class="container">
     <div class="row">
-      <div class="col-md-2 sections">
-        <p>Welcome <span class="member-name"></span></p>
-        <button data-toggle="modal" class="a" data-target="#staticBackdrop">Add item!</button>
+      <div class="col-md-12 welcome">
+        <h1>Welcome, <span class="member-name"></span>!</h1>
+        <div class="buttons">
+          <button data-toggle="modal" class="button" data-target="#staticBackdrop">Add item</button>
+          <button class="button"><a href="/logout">Logout</a></button>
+        </div>
       </div>
-      <div class="col-md-10 sections" id="itemContainer">
+    </div>
+    <div class="row">
+      <div class="col-md-12 sections" id="itemContainer">
         <div class="itemsList">
           <table>
             <thead>
@@ -59,56 +59,45 @@
       </div>
     </div>
   </div>
+  </div>
 
   <!-- Modal -->
   <div class="modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h1>Add item!</h1>
-          <hr>
-        </div>
-        <div class="container">
-          <form class="addItem">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Item Name</label>
-              <input type="text" class="form-control" id="item-name" placeholder="Item Name">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Category</label>
-              <input type="text" class="form-control" id="category" placeholder="Category">
-            </div>
-            <div class="form-group">
-              <label>Price</label>
-              <input type="text" class="form-control" id="price" placeholder="Item Price">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Item Description</label>
-              <input type="text" class="form-control" id="description" placeholder="Item Description">
-            </div>
-            <!-- <div>
-              <label>Is this item avilable for direct purchase?</label>
-              <label for="exampleInputEmail1">Yes</label>
-              <input type="checkbox" id="for-purchase">
-            </div>
-            <div>
-              <label>Is this item avilable to trade?</label>
-              <label for="exampleInputEmail1">Yes</label>
-              <input type="checkbox" id="for-trade">
-            </div>
-            <div>
-              <label>Is this item is...</label>
-              <label for="exampleInputEmail1">new</label>
-              <input type="checkbox" id="new">
-              <label for="exampleInputEmail1">used</label>
-              <input type="checkbox" id="used">
-            </div> -->
-            <button type="submit" class="btn btn-default">Add item!</button>
-          </form>
+        <div class="login_form">
+          <div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h1>Please provide the following:</h1>
+            <hr>
+          </div>
+          <div class="container">
+            <form class="addItem">
+              <div class="container">
+                <div class="row">
+                  <label class="col-md-6">Item Name:</label>
+                  <input type="text" class="col-md-6" id="item-name">
+                </div>
+                <div class="row">
+                  <label class="col-md-6">Category:</label>
+                  <input type="text" class="col-md-6" id="category">
+                </div>
+                <div class="row">
+                  <label class="col-md-6">Price:</label>
+                  <input type="text" class="col-md-6" id="price">
+                </div>
+                <div class="row">
+                  <label class="col-md-6">Description:</label>
+                  <input type="text" class="col-md-6" id="description">
+                </div>
+                <hr>
+                <button type="submit" class="button">Add item!</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
