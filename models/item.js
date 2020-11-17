@@ -46,9 +46,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Item.associate = function(models) {
-    Item.belongsTo(models.User, {
-      onDelete: "cascade"
-    });
+    Item.belongsTo(models.User);
   };
 
   return Item;

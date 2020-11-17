@@ -105,8 +105,13 @@ module.exports = function(app) {
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables
   app.get("/api/item_data", (req, res) => {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
     db.Item.findAll({
-      include: db.User
+      where: query,
+      include: [db.User]
     }).then(items => {
       res.json(items);
     });
@@ -115,7 +120,10 @@ module.exports = function(app) {
   // Need route for pulling a specified item from db (when user wants to view it)
   app.get("/api/item_data/:id", (req, res) => {
     db.Item.findOne({
-      include: db.User
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
     }).then(items => {
       res.json(items);
     });
@@ -152,7 +160,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: db.Item
+      include: [db.Item]
     }).then(userItems => {
       res.json(userItems);
     });
