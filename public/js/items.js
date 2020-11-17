@@ -1,11 +1,11 @@
+/* eslint-disable quotes */
 // Getting references to our form and inputs
 $(document).ready(() => {
   const addAnItem = $("form.addItem");
   const itemNameInput = $("input#item-name");
-  const categoryInput = $("input#category");
+  const categoryInput = $("#category");
   const priceInput = $("input#price");
   const descriptionInput = $("input#description");
-  const tradeInput = $("input#trade");
 
   addAnItem.on("submit", event => {
     event.preventDefault();
@@ -13,8 +13,7 @@ $(document).ready(() => {
       itemName: itemNameInput.val().trim(),
       category: categoryInput.val().trim(),
       price: priceInput.val().trim(),
-      description: descriptionInput.val().trim(),
-      trade: tradeInput.val().trim()
+      description: descriptionInput.val().trim()
     };
 
     if (!itemData.itemName) {
@@ -25,23 +24,20 @@ $(document).ready(() => {
       itemData.itemName,
       itemData.category,
       itemData.price,
-      itemData.description,
-      itemData.trade
+      itemData.description
     );
     itemNameInput.val("");
     categoryInput.val("");
     priceInput.val("");
     descriptionInput.val("");
-    tradeInput.val("");
   });
 
-  function addItem(itemName, category, price, description, trade) {
+  function addItem(itemName, category, price, description) {
     $.post("/api/item_post", {
       itemName: itemName,
       category: category,
       price: price,
-      description: description,
-      trade: trade
+      description: description
     }).then(() => {
       window.location.replace("/members");
       // If there's an error, log the error
@@ -57,11 +53,17 @@ $(document).ready(() => {
       wellSection.attr("id", "character-well-" + i);
       // append the well to the well section
       $("#well-section").append(wellSection);
-
-      // make the name an h2,
-      $("#character-well-" + i).append("<h2>" + data[i].itemName + " (" + data[i].category + ")</h2>");
-      $("#character-well-" + i).append("<h3>Asking Price: " + data[i].price + "</h4>");
-      $("#character-well-" + i).append("<h3>Description: " + data[i].description + "</h4>");
+      $("#character-well-" + i).append("<h2>" + data[i].itemName + "</h2>");
+      $("#character-well-" + i).append("<h2>(" + data[i].category + ")</h2>");
+      $("#character-well-" + i).append(
+        "<h3>Asking Price: " + data[i].price + "</h4>"
+      );
+      $("#character-well-" + i).append(
+        "<h3>Description: " + data[i].description + "</h4>"
+      );
+      $("#character-well-" + i).append(
+        '<button data-toggle="modal" class="a" data-target="#staticBackdrop2">I want this!</button>'
+      );
     }
   });
 });
