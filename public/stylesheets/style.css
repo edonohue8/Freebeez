@@ -1,16 +1,63 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+body{
+  font-family: 'Noto Sans', sans-serif;
 }
+
+h1 {
+  text-align: center;
+}
+
+.head {
+  border: solid;
+  height: 100px;
+  text-align: center;
+  font-size: xx-large;
+  padding: 30px;
+  background-color:rgb(225, 233, 214);
+}
+
+.login_form {
+  border: solid;
+  border-color: black;
+  text-align: center;
+  font-size: x-large;
+  padding: 20px;
+  padding-top: 10px;
+}
+
+.input_box{
+  width: 100%;
+}
+
+.buttons {
+  float: right;
+}
+
+
+
+
+
 
 .sections {
   border: solid;
-  height: 400px
+  height: 490px
 };
 
-button.submit {
-  float: right;
+.welcome {
+  border: solid;
+  font-size: larger;
 }
+
+
+
+.border {
+  border: solid;
+  border-color: black;
+}
+
+
+
+
+
 
 .item-container {
   margin-top: 50px;
@@ -28,4 +75,13 @@ button.submit {
 
 table, th, td {
   border: 20px solid black;
+}
+
+
+.button {
+  border: solid;
+  background-color: rgb(225, 233, 214);
+  color: black;
+  padding: 10px;
+  font-size: larger;
 }
