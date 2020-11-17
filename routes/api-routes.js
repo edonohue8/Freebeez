@@ -69,7 +69,7 @@ module.exports = function(app) {
   // Need route to delete user WITH items associated with user
   // this code alone shall be able to delte user and everything associated with user like user items
 
-  app.delete("api/user_data/:id", (req, res) => {
+  app.delete("/api/user_data/:id", (req, res) => {
     db.User.destroy({
       include: db.Item,
       where: {
@@ -113,7 +113,7 @@ module.exports = function(app) {
   });
 
   // Need route for pulling a specified item from db (when user wants to view it)
-  app.get("api/item_data/:id", (req, res) => {
+  app.get("/api/item_data/:id", (req, res) => {
     db.Item.findOne({
       include: db.User
     }).then(items => {
@@ -122,7 +122,7 @@ module.exports = function(app) {
   });
 
   // Need route to view items by category (needs editing)
-  app.get("api/item_data/:category", (req, res) => {
+  app.get("/api/item_data/:category", (req, res) => {
     db.Item.findOne({
       include: db.User
     }).then(items => {
@@ -147,8 +147,11 @@ module.exports = function(app) {
   // });
 
   // Need route to view items listed under user
-  app.get("api/user_data/:id", (req, res) => {
+  app.get("/api/user_data/:id", (req, res) => {
     db.User.findOne({
+      where: {
+        id: req.params.id
+      },
       include: db.Item
     }).then(userItems => {
       res.json(userItems);
@@ -157,7 +160,7 @@ module.exports = function(app) {
 
   // Need route to delete item
   //might not need this due to line 66 being responsible for deleting all of user and everything associated with user
-  app.delete("api/item_data/:id", (req, res) => {
+  app.delete("/api/item_data/:id", (req, res) => {
     db.Item.destroy({
       where: {
         id: req.params.id
