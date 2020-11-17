@@ -37,15 +37,36 @@ $(document).ready(() => {
       category: category,
       price: price,
       description: description
+    }).then(() => {
+      window.location.replace("/members");
+      // If there's an error, log the error
     });
-
-    // .then(() => {
-    //   //close modal
-    //   window.location.replace("/");
-    //   // If there's an error, handle it by throwing up a bootstrap alert
-    // })
-    // .catch(handleLoginErr);
   }
+
+  $.get("/api/item_data", data => {
+    for (let i = 0; i < data.length; i++) {
+      const wellSection = $("<div>");
+
+      wellSection.addClass("well");
+      // add an id to the well to mark which well it is
+      wellSection.attr("id", "character-well-" + i);
+      // append the well to the well section
+      $("#well-section").append(wellSection);
+
+      // make the name an h2,
+      $("#character-well-" + i).append("<h2>" + data[i].itemName + "</h2>");
+      // the role an h3,
+      // eslint-disable-next-line prettier/prettier
+      $("#character-well-" + i).append("<h3>Category: " + data[i].category + "</h4>");
+      // the age an h3,
+      $("#character-well-" + i).append(
+        "<h3>(For Sale) Price: " + data[i].price + "</h4>"
+      );
+      // and the forcepoints an h3.
+      // eslint-disable-next-line prettier/prettier
+      $("#character-well-" + i).append("<h3>Description: " + data[i].description + "</h4>");
+    }
+  });
 });
 
 //ned to add the table id's or classes to use
