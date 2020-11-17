@@ -82,6 +82,7 @@ module.exports = function(app) {
 
   //route for posting or adding an item
   app.post("/api/item_post", (req, res) => {
+    console.log(req.body.UserId)
     db.Item.create({
       itemName: req.body.itemName,
       category: req.body.category,
@@ -90,7 +91,8 @@ module.exports = function(app) {
       skuPic: req.body.skuPic,
       sellIndicator: req.body.sellIndicator,
       traderIndicator: req.body.tradeIndicator,
-      newUsed: req.body.newUsed
+      newUsed: req.body.newUsed,
+      UserId: req.body.UserId
     }).then(item => {
       // respond back with the item id
       res.json(item.id);

@@ -6,8 +6,10 @@ $(document).ready(() => {
   const categoryInput = $("#category");
   const priceInput = $("input#price");
   const descriptionInput = $("input#description");
+  
 
   addAnItem.on("submit", event => {
+    const UserId = $(".member-name").attr("data-id");
     event.preventDefault();
     const itemData = {
       itemName: itemNameInput.val().trim(),
@@ -24,7 +26,8 @@ $(document).ready(() => {
       itemData.itemName,
       itemData.category,
       itemData.price,
-      itemData.description
+      itemData.description,
+      UserId
     );
     itemNameInput.val("");
     categoryInput.val("");
@@ -32,12 +35,14 @@ $(document).ready(() => {
     descriptionInput.val("");
   });
 
-  function addItem(itemName, category, price, description) {
+  function addItem(itemName, category, price, description, UserId) {
+    console.log(UserId)
     $.post("/api/item_post", {
       itemName: itemName,
       category: category,
       price: price,
-      description: description
+      description: description,
+      UserId: UserId
     }).then(() => {
       window.location.replace("/members");
       // If there's an error, log the error
