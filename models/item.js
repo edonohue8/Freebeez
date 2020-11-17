@@ -22,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    trade: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
     }
     // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
     // sellIndicator: {

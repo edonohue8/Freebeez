@@ -32,20 +32,21 @@ h1 {
   float: right;
 }
 
-
-
-
-
-
 .sections {
   border: solid;
-  height: 490px
+  height: 100%
 };
 
 .welcome {
   border: solid;
   font-size: larger;
 }
+
+.well {
+  text-align: center;
+}
+
+
 
 
 

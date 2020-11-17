@@ -5,6 +5,7 @@ $(document).ready(() => {
   const categoryInput = $("input#category");
   const priceInput = $("input#price");
   const descriptionInput = $("input#description");
+  const tradeInput = $("input#trade");
 
   addAnItem.on("submit", event => {
     event.preventDefault();
@@ -12,7 +13,8 @@ $(document).ready(() => {
       itemName: itemNameInput.val().trim(),
       category: categoryInput.val().trim(),
       price: priceInput.val().trim(),
-      description: descriptionInput.val().trim()
+      description: descriptionInput.val().trim(),
+      trade: tradeInput.val().trim()
     };
 
     if (!itemData.itemName) {
@@ -23,29 +25,45 @@ $(document).ready(() => {
       itemData.itemName,
       itemData.category,
       itemData.price,
-      itemData.description
+      itemData.description,
+      itemData.trade
     );
     itemNameInput.val("");
     categoryInput.val("");
     priceInput.val("");
     descriptionInput.val("");
+    tradeInput.val("");
   });
 
-  function addItem(itemName, category, price, description) {
+  function addItem(itemName, category, price, description, trade) {
     $.post("/api/item_post", {
       itemName: itemName,
       category: category,
       price: price,
-      description: description
+      description: description,
+      trade: trade
+    }).then(() => {
+      window.location.replace("/members");
+      // If there's an error, log the error
     });
-
-    // .then(() => {
-    //   //close modal
-    //   window.location.replace("/");
-    //   // If there's an error, handle it by throwing up a bootstrap alert
-    // })
-    // .catch(handleLoginErr);
   }
+
+  $.get("/api/item_data", data => {
+    for (let i = 0; i < data.length; i++) {
+      const wellSection = $("<div>");
+
+      wellSection.addClass("well");
+      // add an id to the well to mark which well it is
+      wellSection.attr("id", "character-well-" + i);
+      // append the well to the well section
+      $("#well-section").append(wellSection);
+
+      // make the name an h2,
+      $("#character-well-" + i).append("<h2>" + data[i].itemName + " (" + data[i].category + ")</h2>");
+      $("#character-well-" + i).append("<h3>Asking Price: " + data[i].price + "</h4>");
+      $("#character-well-" + i).append("<h3>Description: " + data[i].description + "</h4>");
+    }
+  });
 });
 
 //ned to add the table id's or classes to use
