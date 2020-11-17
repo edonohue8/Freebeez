@@ -5,6 +5,7 @@ $(document).ready(() => {
   const categoryInput = $("input#category");
   const priceInput = $("input#price");
   const descriptionInput = $("input#description");
+  const tradeInput = $("input#trade");
 
   addAnItem.on("submit", event => {
     event.preventDefault();
@@ -12,7 +13,8 @@ $(document).ready(() => {
       itemName: itemNameInput.val().trim(),
       category: categoryInput.val().trim(),
       price: priceInput.val().trim(),
-      description: descriptionInput.val().trim()
+      description: descriptionInput.val().trim(),
+      trade: tradeInput.val().trim()
     };
 
     if (!itemData.itemName) {
@@ -23,20 +25,23 @@ $(document).ready(() => {
       itemData.itemName,
       itemData.category,
       itemData.price,
-      itemData.description
+      itemData.description,
+      itemData.trade
     );
     itemNameInput.val("");
     categoryInput.val("");
     priceInput.val("");
     descriptionInput.val("");
+    tradeInput.val("");
   });
 
-  function addItem(itemName, category, price, description) {
+  function addItem(itemName, category, price, description, trade) {
     $.post("/api/item_post", {
       itemName: itemName,
       category: category,
       price: price,
-      description: description
+      description: description,
+      trade: trade
     }).then(() => {
       window.location.replace("/members");
       // If there's an error, log the error
@@ -54,16 +59,8 @@ $(document).ready(() => {
       $("#well-section").append(wellSection);
 
       // make the name an h2,
-      $("#character-well-" + i).append("<h2>" + data[i].itemName + "</h2>");
-      // the role an h3,
-      // eslint-disable-next-line prettier/prettier
-      $("#character-well-" + i).append("<h3>Category: " + data[i].category + "</h4>");
-      // the age an h3,
-      $("#character-well-" + i).append(
-        "<h3>(For Sale) Price: " + data[i].price + "</h4>"
-      );
-      // and the forcepoints an h3.
-      // eslint-disable-next-line prettier/prettier
+      $("#character-well-" + i).append("<h2>" + data[i].itemName + " (" + data[i].category + ")</h2>");
+      $("#character-well-" + i).append("<h3>Asking Price: " + data[i].price + "</h4>");
       $("#character-well-" + i).append("<h3>Description: " + data[i].description + "</h4>");
     }
   });
