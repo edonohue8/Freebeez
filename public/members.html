@@ -58,7 +58,15 @@
                 </div>
                 <div class="row">
                   <label class="col-md-6">Category:</label>
-                  <input type="text" class="col-md-6" id="category">
+                  <select class="col-md-6" id="category">
+                    <option value="Electronics">Electronics</option>
+                    <option value="Sports/Outdoor">Sports/Outdoor</option>
+                    <option value="Home/Garden">Home/Garden</option>
+                    <option value="Clothes/Fashion">Clothes/Fashion</option>
+                    <option value="Toys">Toys</option>
+                    <option value="Collectibles/Art">Collectibles/Art</option>
+                    <option value="Misc.">Misc.</option>
+                  </select>
                 </div>
                 <div class="row">
                   <label class="col-md-6">Price:</label>
@@ -67,10 +75,6 @@
                 <div class="row">
                   <label class="col-md-6">Description:</label>
                   <input type="text" class="col-md-6" id="description">
-                </div>
-                <div class="row">
-                  <label class="col-md-11">I am willing to trade this item:</label>
-                  <input type="checkbox" class="col-md-1" id="trade">
                 </div>
                 <hr>
                 <button type="submit" class="button">Add item!</button>
@@ -81,6 +85,29 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal 2-->
+  <div class="modal" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="login_form">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h1>Awesome! This user will be excited that you're interested!</h1>
+          <hr>
+          <h2>Please contact this user at _______ to negotiate!</h2>
+          <h2>Best of luck!</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
