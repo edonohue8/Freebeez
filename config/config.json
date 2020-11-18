@@ -2,15 +2,15 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "freebeez_db",
+    "password": "password",
+    "database": "passport_demo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "password",
-    "database": "database_test",
+    "database": "passport_demo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
