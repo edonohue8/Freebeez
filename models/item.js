@@ -8,13 +8,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     // category is used to sort/filter the database table
     // this field should probably be used for a drop-down list of available categories
-    // an open text field will not work
     category: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // price is only needed if available for sale - optional
-    price: {
+    // contact is only needed if available for sale - optional
+    contact: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -23,22 +22,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-    // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
-    // sellIndicator: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // },
-    // tradeIndicator is a boolean "Is item available for exchange? Yes/No" - required
-    // tradeIndicator: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // },
-    // newUsed is a boolean "Is item new or used?" - required
-    // eslint-disable-next-line camelcase
-    // newUsed: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // }
   });
 
   Item.associate = function(models) {

@@ -38,12 +38,8 @@ module.exports = function(app) {
     db.Item.create({
       itemName: req.body.itemName,
       category: req.body.category,
-      price: req.body.price,
-      description: req.body.description,
-      skuPic: req.body.skuPic,
-      sellIndicator: req.body.sellIndicator,
-      traderIndicator: req.body.tradeIndicator,
-      newUsed: req.body.newUsed
+      contact: req.body.contact,
+      description: req.body.description
     }).then(item => {
       // respond back with the item id
       res.json(item.id);
@@ -69,30 +65,25 @@ module.exports = function(app) {
   // Need route to delete user WITH items associated with user
   // this code alone shall be able to delte user and everything associated with user like user items
 
-  app.delete("/api/user_data/:id", (req, res) => {
-    db.User.destroy({
-      include: db.Item,
-      where: {
-        id: req.params.id
-      }
-    }).then(dbItem => {
-      res.json(dbItem);
-    });
-  });
+  // app.delete("/api/user_data/:id", (req, res) => {
+  //   db.User.destroy({
+  //     include: db.Item,
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(dbItem => {
+  //     res.json(dbItem);
+  //   });
+  // });
 
   //route for posting or adding an item
   app.post("/api/item_post", (req, res) => {
-    console.log(req.body.UserId)
+    console.log(req.body.UserId);
     db.Item.create({
       itemName: req.body.itemName,
       category: req.body.category,
-      price: req.body.price,
-      description: req.body.description,
-      skuPic: req.body.skuPic,
-      sellIndicator: req.body.sellIndicator,
-      traderIndicator: req.body.tradeIndicator,
-      newUsed: req.body.newUsed,
-      UserId: req.body.UserId
+      contact: req.body.contact,
+      description: req.body.description
     }).then(item => {
       // respond back with the item id
       res.json(item.id);
@@ -107,7 +98,7 @@ module.exports = function(app) {
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables
   app.get("/api/item_data", (req, res) => {
-    var query = {};
+    const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
