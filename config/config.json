@@ -1,9 +1,9 @@
 
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "passport_demo",
+    "username": "wlxt64emwcmm94hn",
+    "password": "j240kdzesf4brfb8",
+    "database": "lb1pyy87ej7e3p7k",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
