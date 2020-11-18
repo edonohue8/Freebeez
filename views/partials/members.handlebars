@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Passport Authentication</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="head">
+    <h1>You Shouldn't Have</h1>
+  </nav>
+  &nbsp;
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 welcome">
+        <h1>Welcome, <span class="member-name"></span>!</h1>
+        <div class="buttons">
+          <button data-toggle="modal" class="button" data-target="#staticBackdrop">Add item</button>
+          <button class="button"><a href="/logout">Logout</a></button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 sections" id="itemContainer">
+        <div id="well-section">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal  -->
+  <div class="modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="login_form">
+          <div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h1>Please provide the following:</h1>
+            <hr>
+          </div>
+          <div class="container">
+            <form class="addItem">
+              <div class="container">
+                <div class="row">
+                  <label class="col-md-6">Item Name:</label>
+                  <input type="text" class="col-md-6" id="item-name">
+                </div>
+                <div class="row">
+                  <label class="col-md-6">Category:</label>
+                  <select class="col-md-6" id="category">
+                    <option value="Electronics">Electronics</option>
+                    <option value="Sports/Outdoor">Sports/Outdoor</option>
+                    <option value="Home/Garden">Home/Garden</option>
+                    <option value="Clothes/Fashion">Clothes/Fashion</option>
+                    <option value="Toys">Toys</option>
+                    <option value="Collectibles/Art">Collectibles/Art</option>
+                    <option value="Misc.">Misc.</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <label class="col-md-6">Price:</label>
+                  <input type="text" class="col-md-6" id="price">
+                </div>
+                <div class="row">
+                  <label class="col-md-6">Description:</label>
+                  <input type="text" class="col-md-6" id="description">
+                </div>
+                <hr>
+                <button type="submit" class="button">Add item!</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal 2 -->
+  <div class="modal" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="login_form">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h1>Awesome! This user will be excited that you're interested!</h1>
+          <hr>
+          <h2>Please contact this user at _______ to negotiate!</h2>
+          <h2>Best of luck!</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="js/items.js"></script>
+
+</body>
+
+</html>
