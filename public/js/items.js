@@ -60,7 +60,6 @@ $(document).ready(() => {
       $("#well-section").append(wellSection);
 
       $("#item-well-" + i).append("<h2>" + data[i].itemName + "</h2>");
-      $("#item-well-" + i).append("<h2>" + data[i].contact + "</h2>");
 
       if (data[i].category === "Electronics") {
         $("#item-well-" + i).append(
@@ -92,6 +91,7 @@ $(document).ready(() => {
         );
       }
       $("#item-well-" + i).append("<h4>" + data[i].description + "</h4>");
+      $("#item-well-" + i).append("<h2>" + data[i].contact + "</h2>");
       $("#item-well-" + i).append(
         '<button data-toggle="modal" id="wantbtn" class="button button-float" data-target="#staticBackdrop2">I want this!</button>'
       );
