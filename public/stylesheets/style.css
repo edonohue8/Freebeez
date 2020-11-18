@@ -73,3 +73,40 @@ body{
 .button-float{
   float: right;
 }
+
+@media screen and (max-width: 1024px) {
+
+  .button {
+    border: solid;
+    background-color: rgb(238, 235, 204);
+    color: black;
+    padding: 5px;
+  }
+
+  .buttons {
+    font-size: small;
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  
+  .button {
+    border: solid;
+    background-color: rgb(238, 235, 204);
+    color: black;
+    padding: 5px;
+  }
+
+  .buttons {
+    font-size: small;
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .title{
+    font-size: 40px;
+    color: black;
+  }
+}
