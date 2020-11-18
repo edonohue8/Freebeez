@@ -33,23 +33,6 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-  //route for posting or adding an item
-  app.post("/api/itemPost", (req, res) => {
-    db.Item.create({
-      itemName: req.body.itemName,
-      category: req.body.category,
-      price: req.body.price,
-      description: req.body.description,
-      skuPic: req.body.skuPic,
-      sellIndicator: req.body.sellIndicator,
-      traderIndicator: req.body.tradeIndicator,
-      newUsed: req.body.newUsed
-    }).then(item => {
-      // respond back with the item id
-      res.json(item.id);
-    });
-  });
-
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
@@ -88,10 +71,6 @@ module.exports = function(app) {
       category: req.body.category,
       price: req.body.price,
       description: req.body.description,
-      skuPic: req.body.skuPic,
-      sellIndicator: req.body.sellIndicator,
-      traderIndicator: req.body.tradeIndicator,
-      newUsed: req.body.newUsed,
       UserId: req.body.UserId
     }).then(item => {
       // respond back with the item id
@@ -107,7 +86,7 @@ module.exports = function(app) {
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables
   app.get("/api/item_data", (req, res) => {
-    var query = {};
+    const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
@@ -139,22 +118,6 @@ module.exports = function(app) {
       res.json(items);
     });
   });
-
-  // I don't think we need to allow updating of items - Joe
-  // Need route to update item using PUT
-  // app.put("api/item_data", (req, res) => {
-  //   db.Item.update(req.body, {
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   })
-  //     .then(dbItem => {
-  //       res.json(dbItem);
-  //     })
-  //     .catch(err => {
-  //       res.json(err);
-  //     });
-  // });
 
   // Need route to view items listed under user
   app.get("/api/user_data/:id", (req, res) => {
