@@ -1,9 +1,9 @@
 
 {
   "development": {
-    "username": "wlxt64emwcmm94hn",
-    "password": "j240kdzesf4brfb8",
-    "database": "lb1pyy87ej7e3p7k",
+    "username": "root",
+    "password": "",
+    "database": "freebeez_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
