@@ -33,6 +33,19 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  //route for posting or adding an item
+  app.post("/api/itemPost", (req, res) => {
+    db.Item.create({
+      itemName: req.body.itemName,
+      category: req.body.category,
+      contact: req.body.contact,
+      description: req.body.description
+    }).then(item => {
+      // respond back with the item id
+      res.json(item.id);
+    });
+  });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
@@ -52,26 +65,25 @@ module.exports = function(app) {
   // Need route to delete user WITH items associated with user
   // this code alone shall be able to delte user and everything associated with user like user items
 
-  app.delete("/api/user_data/:id", (req, res) => {
-    db.User.destroy({
-      include: db.Item,
-      where: {
-        id: req.params.id
-      }
-    }).then(dbItem => {
-      res.json(dbItem);
-    });
-  });
+  // app.delete("/api/user_data/:id", (req, res) => {
+  //   db.User.destroy({
+  //     include: db.Item,
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(dbItem => {
+  //     res.json(dbItem);
+  //   });
+  // });
 
   //route for posting or adding an item
   app.post("/api/item_post", (req, res) => {
-    console.log(req.body.UserId)
+    console.log(req.body.UserId);
     db.Item.create({
       itemName: req.body.itemName,
       category: req.body.category,
-      price: req.body.price,
-      description: req.body.description,
-      UserId: req.body.UserId
+      contact: req.body.contact,
+      description: req.body.description
     }).then(item => {
       // respond back with the item id
       res.json(item.id);

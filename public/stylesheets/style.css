@@ -1,9 +1,6 @@
 body{
-  font-family: 'Noto Sans', sans-serif;
-}
-
-h1 {
-  text-align: center;
+  font-family: 'Varela Round', sans-serif;
+  color: black;
 }
 
 .head {
@@ -12,7 +9,7 @@ h1 {
   text-align: center;
   font-size: xx-large;
   padding: 30px;
-  background-color:rgb(225, 233, 214);
+  background-color:rgb(247, 240, 181);
 }
 
 .login_form {
@@ -30,59 +27,34 @@ h1 {
 
 .buttons {
   float: right;
-}
-
-.sections {
-  border: solid;
-  height: 100%
-};
-
-.welcome {
-  border: solid;
-  font-size: larger;
+  font-size: medium;
+  margin-top: -50px;
 }
 
 .well {
   text-align: center;
-}
-
-
-
-
-
-.border {
+  height: 150px;
   border: solid;
   border-color: black;
 }
 
-
-
-
-
-
-.item-container {
-  margin-top: 50px;
+.icon{
+  width: 40px;
+  height: 40px;
 }
-
-.item-list {
-  margin-top: 25px;
-}
-
-#item-name {
-  width: 100%;
-  height: 35px;
-  margin-top: 5px;
-}
-
-table, th, td {
-  border: 20px solid black;
-}
-
 
 .button {
   border: solid;
-  background-color: rgb(225, 233, 214);
+  background-color: rgb(247, 240, 181);
   color: black;
   padding: 10px;
   font-size: larger;
+}
+
+.float{
+  float: left;
+}
+
+.button-float{
+  float: right;
 }
