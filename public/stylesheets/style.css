@@ -1,15 +1,25 @@
 body{
   font-family: 'Varela Round', sans-serif;
   color: black;
+  background-color: rgb(241, 241, 241);
+}
+
+.title{
+  font-size: 50px;
+  color: black;
+}
+
+.black{
+  color: black;
 }
 
 .head {
-  border: solid;
-  height: 100px;
+  border-bottom: solid;
+  height: 140px;
   text-align: center;
   font-size: xx-large;
   padding: 30px;
-  background-color:rgb(247, 240, 181);
+  background-color:rgb(250, 241, 159);
 }
 
 .login_form {
@@ -19,6 +29,8 @@ body{
   font-size: x-large;
   padding: 20px;
   padding-top: 10px;
+  border-radius: 5%;
+  box-shadow: 4px 8px 6px 8px #888888;
 }
 
 .input_box{
@@ -33,9 +45,12 @@ body{
 
 .well {
   text-align: center;
-  height: 150px;
+  height: 160px;
   border: solid;
   border-color: black;
+  border-radius: 4%;
+  font-size: larger;
+  box-shadow: 3px 7px 5px 7px #888888;
 }
 
 .icon{
@@ -45,7 +60,7 @@ body{
 
 .button {
   border: solid;
-  background-color: rgb(247, 240, 181);
+  background-color: rgb(238, 235, 204);
   color: black;
   padding: 10px;
   font-size: larger;

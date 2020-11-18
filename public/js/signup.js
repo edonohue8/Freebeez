@@ -34,7 +34,7 @@ $(document).ready(() => {
     })
       .then(() => {
         //close modal
-        window.location.replace("/");
+        location.reload();
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
