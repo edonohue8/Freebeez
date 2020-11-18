@@ -6,7 +6,6 @@ $(document).ready(() => {
   const categoryInput = $("#category");
   const priceInput = $("input#price");
   const descriptionInput = $("input#description");
-  
 
   addAnItem.on("submit", event => {
     const UserId = $(".member-name").attr("data-id");
@@ -36,7 +35,7 @@ $(document).ready(() => {
   });
 
   function addItem(itemName, category, price, description, UserId) {
-    console.log(UserId)
+    console.log(UserId);
     $.post("/api/item_post", {
       itemName: itemName,
       category: category,

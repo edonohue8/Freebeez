@@ -23,22 +23,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-    // sellIndicator is a boolean "Is item available for direct purchase? Yes/No" - required
-    // sellIndicator: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // },
-    // tradeIndicator is a boolean "Is item available for exchange? Yes/No" - required
-    // tradeIndicator: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // },
-    // newUsed is a boolean "Is item new or used?" - required
-    // eslint-disable-next-line camelcase
-    // newUsed: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: true
-    // }
   });
 
   Item.associate = function(models) {

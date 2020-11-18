@@ -21,22 +21,22 @@ module.exports =
   // Don't know if it's needed for config.js
   // I'm not deleting yet in case we need it later - Joe
   {
-    "development": {
-      "username": "root",
-      "password": "",
-      "database": "passport_demo",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+    development: {
+      username: "root",
+      password: "Clintb00.",
+      database: "passport_demo",
+      host: "127.0.0.1",
+      dialect: "mysql"
     },
-    "test": {
-      "username": "root",
-      "password": "",
-      "database": "database_test",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+    test: {
+      username: "root",
+      password: "Clintb00.",
+      database: "database_test",
+      host: "127.0.0.1",
+      dialect: "mysql"
     },
-    "production": {
-      "use_env_variable": "JAWSDB_URL",
-      "dialect": "mysql"
+    production: {
+      use_env_variable: "JAWSDB_URL",
+      dialect: "mysql"
     }
   };
