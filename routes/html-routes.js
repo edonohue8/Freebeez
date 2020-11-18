@@ -5,15 +5,16 @@ const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
+  app.get("/members", (req, res) => {
+    res.render("partials/members");
+    // console.log(res);
+  });
+
   app.get("/", (req, res) => {
     if (req.user) {
       res.redirect("/members");
     }
     res.render("layouts/main");
-    // console.log(res);
-  });
-  app.get("/members", (req, res) => {
-    res.render("partials/members");
     // console.log(res);
   });
   // app.get("/", (req, res) => {
