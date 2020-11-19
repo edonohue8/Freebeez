@@ -8,7 +8,6 @@ gulp.task("compress", () => {
   return pipeline(
     gulp.src("models/*.js"),
     gulp.src("public/js/*.js"),
-    gulp.src("routes/*.js"),
     uglify(),
     gulp.dest("dist")
   );
