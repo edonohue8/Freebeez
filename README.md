@@ -2,42 +2,40 @@
 
 ## Title
 
-The "You Shouldn't Have!" App
+Freebeez App
 
 ## Description 
 
-This app allows users to sell or trade unwanted gifts and to buy new and used "white elephant" type gifts for a great price.
+This app allows users to giveaway unwanted items and get free items.
 
 ## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
+* [Deployment](#deployment)
+* [Screenshots](#screenshots)
 * [Contributing](#contibuting)
-* [Tests](#tests)
 
-## Installation
+## Deployment
+### Heroku Link
+[Click here](https://project2-group5.herokuapp.com/)
 
+## Screenshots
 
+* **Login Page**
+<img src="readmeimages/login.png" width="600">
 
-## Usage
-
-
-
-## License
-
-MIT
+* **Members Page**
+<img src="readmeimages/members.png" width="600">
 
 ## Contributing
 
 Not accepting contributions at this time.
-
-## Tests 
-
-
-
+ 
 ## Project Team Members
 
 * Eric Donohue
 * Giovanny Franco
 * Jorge Martinez
-* Joseph Telezinski
-* Nolan 
+* Nolan Sanchez
+
+## License
+
+MIT
