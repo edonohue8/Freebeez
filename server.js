@@ -1,17 +1,17 @@
 /* eslint-disable prettier/prettier */
 //readable streamm and uglify
-const gulp = require("gulp");
-const uglify = require("gulp-uglify");
-const pipeline = require("readable-stream").pipeline;
+// const gulp = require("gulp");
+// const uglify = require("gulp-uglify");
+// const pipeline = require("readable-stream").pipeline;
 
-gulp.task("compress", () => {
-  return pipeline(
-    gulp.src("models/*.js"),
-    gulp.src("public/js/*.js"),
-    uglify(),
-    gulp.dest("dist")
-  );
-});
+// gulp.task("compress", () => {
+//   return pipeline(
+//     gulp.src("models/*.js"),
+//     gulp.src("public/js/*.js"),
+//     uglify(),
+//     gulp.dest("dist")
+//   );
+// });
 
 // Requiring necessary npm packages
 const express = require("express");
