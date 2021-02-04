@@ -29,9 +29,7 @@ As the user approaches the landing page, he/she will be able to view items alrea
 * [Deployment](#deployment)
 * [Technology](#technology)
 * [Screenshots](#screenshots)
-* [Challenges](#challenges)
-* [Contributing](#contibuting)
-* [Team](#team)
+* [Contributors](#contributors)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
@@ -57,26 +55,19 @@ As the user approaches the landing page, he/she will be able to view items alrea
 
 * **Members Page**
 <img src="readmeimages/members.png" width="600">
-
-## Challenges
-
-In regards to our new technology aspect, we used gulp-uglify (https://www.npmjs.com/package/gulp-uglify).  However, this only worked when running our node server locally.  When deployment was pushed to Heroku, there were connection issues.
-
-## Contributing
-
-Not accepting contributions at this time.
  
-## Team
+## Contributors
 
-* Eric Donohue
-* Giovanny Franco
-* Jorge Martinez
-* Nolan Sanchez
+* Eric Donohue, [GitHub Profile](https://github.com/edonohue8)
+* Giovanny Franco, [GitHub Profile](https://github.com/gfranco19)
+* Jorge Martinez, [GitHub Profile](https://github.com/jamjorge21)
+* Nolan Sanchez, [GitHub Profile](https://github.com/Nolanws1)
+* Joe Telezinski, [GitHub Profile](https://github.com/telezinski)
 
 ## Acknowledgements
 
-* Our instructor and the TA
-* Our tutors
+* Farish Kashefinejad, [GitHub Profile](https://github.com/farishkash)
+* Juan Ruelas, [GitHub Profile](https://github.com/ChannelJuanNews)
 
 ## License
 
