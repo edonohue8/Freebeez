@@ -65,17 +65,6 @@ module.exports = function(app) {
   // Need route to delete user WITH items associated with user
   // this code alone shall be able to delte user and everything associated with user like user items
 
-  // app.delete("/api/user_data/:id", (req, res) => {
-  //   db.User.destroy({
-  //     include: db.Item,
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(dbItem => {
-  //     res.json(dbItem);
-  //   });
-  // });
-
   //route for posting or adding an item
   app.post("/api/item_post", (req, res) => {
     console.log(req.body.UserId);
@@ -89,11 +78,6 @@ module.exports = function(app) {
       res.json(item.id);
     });
   });
-
-  // 2 step process
-  // 1 create the item (and get the item id of the newly created item )
-  // upload photo (and associate the photo wih the item id )
-  // done
 
   // Route for viewing all items and associate with users that post them
   // need foreign key in MySQL tables

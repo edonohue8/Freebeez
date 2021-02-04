@@ -1,9 +1,5 @@
 "use strict";
 
-// const Sequelize = require("sequelize");
-
-// alternate "up: async (queryInterface, Sequelize) => {"
-
 module.exports = {
   up: async queryInterface => {
     await queryInterface.bulkInsert(
@@ -14,39 +10,18 @@ module.exports = {
           password: "password",
           createdAt: new Date(),
           updatedAt: new Date()
-          // UserId: 1
-          // {
-          //   type: Sequelize.UUID,
-          //   defaultValue: Sequelize.UUIDV4,
-          //   allowNull: false,
-          //   primaryKey: true
-          // }
         },
         {
           email: "bob@smith.net",
           password: "password",
           createdAt: new Date(),
           updatedAt: new Date()
-          // UserId: 2
-          // {
-          //   type: Sequelize.UUID,
-          //   defaultValue: Sequelize.UUIDV4,
-          //   allowNull: false,
-          //   primaryKey: true
-          // }
         },
         {
           email: "lucille@vanpelt.net",
           password: "password",
           createdAt: new Date(),
           updatedAt: new Date()
-          // UserId: 3
-          // {
-          //   type: Sequelize.UUID,
-          //   defaultValue: Sequelize.UUIDV4,
-          //   allowNull: false,
-          //   primaryKey: true
-          // }
         }
       ],
       {}
